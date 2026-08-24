@@ -1,0 +1,27 @@
+# --- runtime data -----------------------------------------------------
+*.db
+*.db-wal
+*.db-shm
+storage/materials/*
+storage/previews/*
+storage/qr/*
+!storage/**/.gitkeep
+
+# --- secrets ----------------------------------------------------------
+.env
+
+# --- python -----------------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# --- node / frontend --------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- editors / os -----------------------------------------------------
+.vscode/
+.idea/
+.DS_Store

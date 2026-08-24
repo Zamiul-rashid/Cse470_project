@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 font-sans text-slate-900 antialiased;
+  }
+
+  /* One consistent focus ring for everything the keyboard can reach. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+}
+
+@layer components {
+  /* Buttons ---------------------------------------------------------------
+     `.btn` carries the geometry; the variant carries the colour. Always use
+     them together: <button className="btn btn-primary">. */
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap
+           rounded-lg px-4 py-2 text-sm font-medium transition-colors
+           disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800;
+  }
+
+  .btn-ghost {
+    @apply bg-white text-slate-700 ring-1 ring-inset ring-slate-300
+           hover:bg-slate-50 hover:text-slate-900 active:bg-slate-100;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 active:bg-red-800;
+  }
+
+  /* Forms ---------------------------------------------------------------- */
+  .input {
+    @apply block w-full rounded-lg border-0 bg-white px-3 py-2 text-sm text-slate-900
+           shadow-sm ring-1 ring-inset ring-slate-300 transition
+           placeholder:text-slate-400
+           focus:ring-2 focus:ring-inset focus:ring-brand-600
+           disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+
+  .field-error {
+    @apply mt-1.5 text-xs font-medium text-red-600;
+  }
+
+  /* Surfaces ------------------------------------------------------------- */
+  .card {
+    @apply rounded-xl bg-white shadow-card ring-1 ring-slate-200;
+  }
+
+  /* Status chip geometry. The colour comes from the token classes in
+     src/lib/format.ts, never from a hex value in a component. */
+  .pill {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5
+           text-xs font-medium ring-1 ring-inset;
+  }
+}
