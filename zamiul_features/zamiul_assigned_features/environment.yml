@@ -1,0 +1,39 @@
+# NoteVault development environment.
+#
+# Carries BOTH the Python backend and the Node toolchain for the React
+# frontend, so the only prerequisite on a fresh machine is miniconda itself.
+#
+#   conda env create -f environment.yml            # first time
+#   conda env update -f environment.yml --prune    # afterwards
+name: notevault
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - nodejs=20
+  - pip
+  - pip:
+      # --- web framework -------------------------------------------------
+      - fastapi==0.115.6
+      - uvicorn[standard]==0.34.0
+      - python-multipart==0.0.20
+      # --- persistence ---------------------------------------------------
+      - sqlmodel==0.0.22
+      - sqlalchemy==2.0.36
+      - aiosqlite==0.20.0
+      - greenlet==3.1.1
+      - alembic==1.14.0
+      # --- config & auth -------------------------------------------------
+      - pydantic-settings==2.7.0
+      - PyJWT==2.10.1
+      - bcrypt==4.2.1
+      # --- feature libraries ----------------------------------------------
+      - pypdf==5.1.0            # FR 1.4  preview page slicing
+      - rapidfuzz==3.10.1       # FR 1.5  duplicate title similarity
+      - qrcode[pil]==8.0        # FR 3.3  handoff QR rendering
+      - reportlab==4.2.5        # FR 4.5  PDF export
+      - APScheduler==3.11.0     # FR 3.2  rental due-date reminders
+      # --- testing -------------------------------------------------------
+      - httpx==0.28.1
+      - pytest==8.3.4
+      - pytest-asyncio==0.25.0
