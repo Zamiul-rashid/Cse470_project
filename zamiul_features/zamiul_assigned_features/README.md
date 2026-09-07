@@ -55,8 +55,15 @@ If you remember only one sentence, remember that one.
 ## 1. What this folder is
 
 This is a **transfer bundle**, not a separate application. Every file in here is
-a **byte-for-byte copy** of a file from the main NoteVault repository, kept at
-its original path so you can see exactly where it belongs.
+a copy of a file from the main NoteVault repository, kept at its original path
+so you can see exactly where it belongs.
+
+The copies are identical to the originals **except that some carry extra
+explanatory comments** added for this guide — study notes rather than code
+changes. No logic differs, and the annotated files still pass the same test
+suite. Files annotated so far:
+
+- `backend/tests/test_materials.py`
 
 ```
 zamiul_features/zamiul_assigned_features/
